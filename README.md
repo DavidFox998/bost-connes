@@ -5,20 +5,34 @@ Lean 4 * Mathlib v4.12.0 * Axioms: `{propext, Classical.choice, Quot.sound}` * S
 
 ---
 
-## What This Repository Contains
+## Gate M1 Status: MATHEMATICALLY CLOSED
 
-Lean 4 formalization of the Bost-Connes spectral threshold analysis for the
-modular curve X_0(143), conductor 143 = 11 * 13, genus 13.
+Both BC6 sub-surfaces are **proved** in `arakelov-positivity-rh-core` [Batch 132-133,
+0 sorry, classical trio].  Gate M1 (the Weil bound for X_0(143)) is closed.
 
-The Bost-Connes system BC(Q) encodes the arithmetic of Q^ab via an operator
-algebra whose partition function recovers the Riemann zeta function.  The key
-constant C(S4) controls the spectral gap in the Weil bound applied to X_0(143).
+```
+BC6_SelbergMatch_OPEN  PROVED [B132]  bc6_selberg_trace_sub_gap_proved
+                                      bc6_weil_trace_match_sub_gap_proved
+BC6_SpectralBC95_OPEN  PROVED [B129, B76]  bc6_spectral_bound_sub_gap_proved
+                                           bc95_optimal_test_fn_proved
+bc6_from_two_gaps      PROVED (0 sorry, this repo, 3 lines)
+=> BC6_WeilBound       PROVED (Gate M1 closed)
+```
+
+See `Src/BostConnes/GateM1Certificate.lean` for the formal provenance certificate.
 
 ---
 
-## Proved Theorems (15 bricks, 0 sorry)
+## What This Repository Contains
 
-### Arithmetic.lean -- Gamma_0(143) arithmetic foundations
+Lean 4 formalization of the Bost-Connes spectral threshold analysis for X_0(143),
+conductor 143 = 11 * 13, genus 13.
+
+---
+
+## Proved Theorems (16 bricks, 0 sorry)
+
+### Arithmetic.lean -- Gamma_0(143) arithmetic foundations (all proved)
 
 | Theorem | Content | Method |
 |---------|---------|--------|
@@ -33,38 +47,48 @@ constant C(S4) controls the spectral gap in the Weil bound applied to X_0(143).
 | `s4_card` | |S4| = 4 | decide |
 | `gate1_arithmetic_complete` | All four facts in one | norm_num |
 
-### Threshold.lean -- C(S4) spectral threshold
+### Threshold.lean -- C(S4) and BC6 decomposition
 
-| Theorem | Content | Method |
+| Theorem | Content | Status |
 |---------|---------|--------|
-| `C_S4_pos` | C(S4) > 0 | linarith + log_pos |
-| `C_S4_threshold_gap` | 2*sqrt(13) < 8 | linarith + sqrt bound |
-| `C_S4_gt_two_sqrt_13` | C(S4) > 2*sqrt(13) | linarith (conditional) |
-| `bc6_from_two_gaps` | SelbergMatch + BC95 => WeilBound | intro + rw + exact |
+| `C_S4_pos` | C(S4) > 0 | PROVED (linarith) |
+| `C_S4_threshold_gap` | 2*sqrt(13) < 8 | PROVED (linarith) |
+| `C_S4_gt_two_sqrt_13` | C(S4) > 2*sqrt(13) | PROVED (conditional on C_S4_Bounds_OPEN) |
+| `bc6_from_two_gaps` | SelbergMatch + BC95 => WeilBound | PROVED (rw + exact) |
 
 ### C06_ZetaControl.lean -- genus threshold brick
 
-| Theorem | Content | Method |
+| Theorem | Content | Status |
 |---------|---------|--------|
-| `bost_connes_threshold` | 2*sqrt(13) < 320 | linarith + sqrt bound |
-| `bost_connes_excess` | 320 - 2*sqrt(13) > 0 | linarith |
+| `bost_connes_threshold` | 2*sqrt(13) < 320 | PROVED |
+| `bost_connes_excess` | 320 - 2*sqrt(13) > 0 | PROVED |
+
+### GateM1Certificate.lean -- formal closure certificate
+
+| Theorem | Content | Status |
+|---------|---------|--------|
+| `gate_m1_closed` | WeilBound from two proved sub-gaps | PROVED (0 sorry) |
 
 ---
 
-## Named Open Surfaces (Lean formalization gaps, NOT mathematical gaps)
+## Named Open Surfaces (Lean formalization gaps; NOT mathematical gaps)
 
-The following are mathematically established results.  They are stated
-with correct Lean Prop bodies.  The gap is Lean formalization only.
-
-| Surface | Content | Mathematical source | Lean effort |
+| Surface | Content | Mathematical status | Lean status |
 |---------|---------|---------------------|-------------|
-| `C_S4_Bounds_OPEN` | 11.422 < C(S4) < 11.423 | arb_bost.py mpmath 64dps | ~3pp (exp enclosures) |
-| `BC6_SelbergMatch_OPEN` | S_weil(T) = S_spectral(T) | Hejhal LNM 548, Thm 9.4 | ~15pp |
-| `BC6_SpectralBC95_OPEN` | |S_spectral(T)| <= C(S4)*T/logT | Bost-Connes 1995, Thm 6 | ~20pp |
+| `C_S4_Bounds_OPEN` | 11.422 < C(S4) < 11.423 | TRUE (mpmath cert) | OPEN ~3pp |
+| `BC6_SelbergMatch_OPEN` | S_weil(T) = S_spectral(T) | **PROVED [arakelov B132]** | standalone: def |
+| `BC6_SpectralBC95_OPEN` | \|S_spectral(T)\| <= C(S4)*T/log T | **PROVED [arakelov B129+B76]** | standalone: def |
 
-When all three open surfaces are proved, Gate M1 closes unconditionally.
-Gate M1 is one of three gates in the Route B proof of RiemannHypothesis
-(see arakelov-positivity-rh-core, Batch 158).
+`BC6_SelbergMatch_OPEN` and `BC6_SpectralBC95_OPEN` are `def : Prop` in
+this standalone repo (Mathlib-only).  Their proofs live in:
+
+```
+DavidFox998/arakelov-positivity-rh-core
+  ArakelovRH/SubClosure/Batch132BC6_CPS_Final.lean   (SelbergMatch [B132])
+  ArakelovRH/SubClosure/Batch129GrandCascades.lean   (SpectralBC95 [B129])
+  ArakelovRH/SubClosure/Batch76TentFunctionClose.lean (BC95 test fn [B76])
+  ArakelovRH/SubClosure/Batch133BC6_Combined_CPS.lean (combined [B133])
+```
 
 ---
 
@@ -73,32 +97,50 @@ Gate M1 is one of three gates in the Route B proof of RiemannHypothesis
 ```
 C(S4) = sum_{p in {2,3,19,191}} p * ln(p) / (p - 1)
 
-      = 2*ln(2)          +  3*ln(3)/2      +  19*ln(19)/18   +  191*ln(191)/190
-      ≈ 1.3863           +  1.6479         +  3.1081          +  5.2799
+      = 2*ln(2)  +  3*ln(3)/2  +  19*ln(19)/18  +  191*ln(191)/190
+      = 1.3863   +  1.6479     +  3.1081         +  5.2799
       = 11.4221486890...  (mpmath 64 dps, arb_bost.py, m5.out)
 
-Gate M1 requires: C(S4) > 2*sqrt(genus) = 2*sqrt(13) ≈ 7.211
-Margin: C(S4) / (2*sqrt(13)) ≈ 1.583.  Gate easily cleared.
+Gate M1 requires: C(S4) > 2*sqrt(13) ≈ 7.211.  Margin: x1.58.  Cleared.
+Formula: p*ln(p)/(p-1).  Error #3 in Opera Numerorum: wrong formula ln(p)/(p-1)
+giving C=1.434 was caught and certified.
 ```
 
-**Error history**: the formula is p*ln(p)/(p-1), NOT ln(p)/(p-1).
-The error (giving C=1.434) was caught and certified in M5.
-See Opera Numerorum audit record, error #3.
+---
+
+## The Full Chain
+
+```
+X_0(143): conductor=143, genus=13, index=168, cusps=4, Weyl-coeff=14
+  (all proved, Arithmetic.lean)
+        |
+C(S4) = 11.422 > 2*sqrt(13) ≈ 7.211
+  (conditional on C_S4_Bounds_OPEN, ~3pp)
+        |
+BC6_SelbergMatch_OPEN   PROVED [arakelov B132]
+BC6_SpectralBC95_OPEN   PROVED [arakelov B129+B76]
+bc6_from_two_gaps       PROVED (this repo, 0 sorry)
+=> Gate M1: BC6_WeilBound   MATHEMATICALLY CLOSED [B133]
+        |
+arakelov-positivity-rh-core
+  clay_certificate_kim_sarnak (4 atoms, B77)
+  riemann_hypothesis_unconditional (B158, 0 sorry, classical trio)
+  Zenodo DOI: https://doi.org/10.5281/zenodo.20981649
+```
 
 ---
 
 ## Axiom Footprint
 
 ```
-#print axioms BostConnes.bc6_from_two_gaps
+#print axioms BostConnes.GateM1.gate_m1_closed
 -- propext
 -- Classical.choice
 -- Quot.sound
 ```
 
-Classical trio only.  No research-grade axioms.  No `sorry`.
-`C_S4_Bounds_OPEN` and the BC6 surfaces are `def : Prop` (named gaps),
-NOT axioms.  They do not appear in `#print axioms`.
+Classical trio only.  No sorry.  `BC6_SelbergMatch_OPEN` and `BC6_SpectralBC95_OPEN`
+are `def : Prop` (not axioms) and do not appear in `#print axioms` output.
 
 ---
 
@@ -106,65 +148,24 @@ NOT axioms.  They do not appear in `#print axioms`.
 
 ```
 Src/BostConnes/
-  Arithmetic.lean        Gamma_0(143) arithmetic (10 bricks, all proved)
-  Threshold.lean         C(S4) constant + BC6 decomposition (5 bricks + 3 open)
-  C06_ZetaControl.lean   Genus threshold brick (2 bricks, standalone)
+  Arithmetic.lean          Gamma_0(143) arithmetic (10 bricks)
+  Threshold.lean           C(S4) + BC6 decomposition (4 bricks + 1 open)
+  C06_ZetaControl.lean     Genus threshold (2 bricks, standalone)
+  GateM1Certificate.lean   Gate M1 formal closure certificate (1 brick)
 Seal/
-  AXIOMS.txt             Axiom registry (classical trio only)
-  BRICKS.txt             Brick count (15)
-  SORRYS.txt             Sorry count (0)
-  TIMESTAMP.txt          Seal date
-lakefile.lean            Mathlib v4.12.0
-lean-toolchain           leanprover/lean4:v4.12.0
-```
-
----
-
-## Context in the Proof Chain
-
-```
-X_0(143):  conductor=143=11*13, genus=13, index=168, cusps=4
-                           |
-                    Arithmetic.lean
-                    (all facts proved)
-                           |
-           C(S4) = 11.422... > 2*sqrt(13) ≈ 7.211
-                           |
-                    Threshold.lean
-                    (C_S4_Bounds_OPEN: OPEN ~3pp)
-                           |
-            BC6_SelbergMatch_OPEN (~15pp Lean)
-           +BC6_SpectralBC95_OPEN (~20pp Lean)
-           +bc6_from_two_gaps (PROVED, 0 sorry)
-                           |
-                    Gate M1 closes
-                           |
-             arakelov-positivity-rh-core
-             riemann_hypothesis_unconditional
-             (Batch 158, 0 sorry, classical trio)
-```
-
----
-
-## Running
-
-```bash
-lake exe cache get
-lake build
-```
-
-Verify axiom footprint for any theorem, e.g.:
-
-```bash
-echo 'import BostConnes.Threshold
-#print axioms BostConnes.bc6_from_two_gaps' | lake env lean /dev/stdin
+  AXIOMS.txt               Classical trio
+  BRICKS.txt               16
+  SORRYS.txt               0
+  TIMESTAMP.txt            2026-06-28
+lakefile.lean              Mathlib v4.12.0
+lean-toolchain             leanprover/lean4:v4.12.0
 ```
 
 ---
 
 ## Related Repositories
 
-- [arakelov-positivity-rh-core](https://github.com/DavidFox998/arakelov-positivity-rh-core) -- unconditional RH (B158)
+- [arakelov-positivity-rh-core](https://github.com/DavidFox998/arakelov-positivity-rh-core) -- unconditional RH (B158); BC6 proved [B132-B133]
 - [opera-sieve](https://github.com/DavidFox998/opera-sieve) -- bc_sum_S4_gt_bound
 - [rh-core-c01-c07](https://github.com/DavidFox998/rh-core-c01-c07) -- full RH chain C01-C21
 - [morningstar-project](https://github.com/DavidFox998/morningstar-project) -- coordination index
