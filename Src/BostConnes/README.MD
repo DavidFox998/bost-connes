@@ -1,4 +1,4 @@
-# Src/BostConnes/ — Shanmen — 10 files — Gates M1-M8
+# Src/BostConnes/ — 10 files — Gates M1-M8
 
 David Fox — 0009-0008-1290-6105 — Lean 4.12 — 21 bricks 0 sorry — {propext, Classical.choice, Quot.sound}
 
