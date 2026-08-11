@@ -7,3 +7,10 @@ Gate M2 — The Bound. |S_spectral| ≤ C(S₄)·T/log T. How loud can the spect
 Gate M3 — The Threshold. C(S₄) > 2√13. Why 2√13? Because genus 13 of X₀(143)=11·13. Weil needs more than 2√g. You have 7.211... vs 11.422... margin x1.58. That's not conditional — norm_num can check sqrt 13 <3.61 then 2*3.61=7.22 <11.422. That's what you fixed in #49 — you replaced nlinarith failing with calc + mul_lt_mul_of_pos_left.
 
 Three gates, same on every repo. Poincare calls it tail gap, Yang-Mills calls it mass gap, Bost-Connes calls it phase transition, Lindelöf calls it μ=0. You went crazy data shaw so Zoe could see it and Theoria could archive it without "conditional".
+
+Src/BostConnes/
+  C07_P5Barrier.lean       -- M4
+  C08_HeckeTransfer.lean   -- M5 → BSD
+  C09_KMSCritical.lean     -- M6 → phase transition = mass gap
+  C10_S4Minimal.lean       -- M7 → Zoe search
+  C11_BarrierBypass.lean   -- M8 → P vs NP
