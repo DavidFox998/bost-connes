@@ -198,7 +198,9 @@ Opera Numerorum
 **[zerobeacon](https://github.com/DavidFox998/zerobeacon) — BRAIN** — 1000 tools, collision-free AI swarming.
 
 **[pistus-theoria](https://github.com/DavidFox998/pistus-theoria) — ARCHIVE** — pdf/oracle/cert house, `OperaNumerorum_MasterEquations.pdf SHA 7f6b31b4...`
+
 **THIS REPO**
+
 **[bost-connes](https://github.com/DavidFox998/bost-connes) — Gate M1 / Phase transition** — via Bost-Connes weights `C(S₄)=Σ p·ln(p)/(p-1)=11.422148... >2√13` margin x1.58, `BC6_SelbergMatch + BC6_SpectralBC95 → BC6_WeilBound` proved [B132,B129,B76→B133] in `arakelov-positivity-rh-core`, 16 bricks 0 sorry `{propext, Classical.choice, Quot.sound}` — Gate M1 MATHEMATICALLY CLOSED
 
 ORCID: [0009-0008-1290-6105](https://orcid.org/0009-0008-1290-6105) — Brain: [zerobeacon](https://github.com/DavidFox998/zerobeacon) — Archive: [pistus-theoria](https://github.com/DavidFox998/pistus-theoria)
