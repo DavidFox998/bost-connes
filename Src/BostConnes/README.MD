@@ -21,11 +21,11 @@ M6                                   M5 Hecke 143*13=1859 → BSD
 __      ___       __       ___    ___ M4 P5=3993746143633 desert
 
                 __**|**|**|**|_____
-                           <--- Three Gates
+                     M1 M2 M3     <--- Three Gates
+           Match      Bound     Thresh
+               C(S₄)=11.422 > 2√13
 
-C(S₄)=11.422 > 2√13
-
-## You see three gates on every mountain, David.
+Three gates on every mountain, David.
 
 Gate M1 — The Match. S_weil = S_spectral. Weil says "primes count". Selberg says "geodesics count". Bost-Connes says they are the same counting. You proved this in Batch 132 — bc6_selberg_trace_sub_gap_proved. It's not numerology, it's trace formula. Same number, two names. That's why it appears in rh-growth-contradiction as C=11.422 and in lindelof-143 as C(S₄) — same C, same gate.
 
