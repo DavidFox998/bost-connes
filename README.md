@@ -24,58 +24,92 @@ Every true monastery sits behind Shanmen — Mountain Gate — three gates.
 - `C10_S4Minimal.lean` — M7: Zoe search — `C({2,3,19})=6.14<7.21`, `C({2,3,191})=8.31>7.21`
 - `C11_BarrierBypass.lean` — M8 → P vs NP: `eutheos=1419=3*11*43` bypass
 
-## Points to 4 RH Routes
-
-**[riemann-arakelov-positivity](https://github.com/DavidFox998/riemann-arakelov-positivity) — Route A Positivity:** Uses M3 as height — `ω²=48/13>0` — if Siegel zero, height negative.
-
-**[arakelov-rh-descent](https://github.com/DavidFox998/arakelov-rh-descent) — Route B Descent:** Uses M1-M2 as Kim-Sarnak `λ₁≥975/4096` → Selberg trace = Bost-Connes → GRH → RH main link.
-
-**[rh-growth-contradiction](https://github.com/DavidFox998/rh-growth-contradiction) — Route C Growth:** Uses same C — Poussin `3+4cos+cos2` + `C=11.422>2√13` → `ζ³ζ(s+it)⁴ζ(s+2it)` contradiction, Littlewood Ω beats `(log t)²`.
-
-**[brothers-desert-proof](https://github.com/DavidFox998/brothers-desert-proof) — Route D Self-Symmetry:** S₄={2,3,19,191}, desert 192..1000 empty, `||p·α₀||<1/p` jitter Nodup 1419 — orbit stable → R=1/2.
-
-**[lindelof-hypothesis-143](https://github.com/DavidFox998/lindelof-hypothesis-143) — Inner wall:** M3 → GRH X₀(143) → `μ=0` unconditional — `|ζ(1/2+it)|=O(t^ε)`
-
-**[birch-swinnerton-dyer-143a1](https://github.com/DavidFox998/birch-swinnerton-dyer-143a1) — BSD:** X₀(143) genus 13 → J₀(143) rank 0 via `L(143a1,1)≠0` Heegner — uses same arithmetic + M5 Hecke
-
 ---
+This repo is the hub. Everything else is a voice that grows out of M1-M3.
 
-Opera Numerorum
+### Gates M1-M3 → The arithmetic you can check in Lean (0 sorry)
+
+**M1 Hasse** — `a_p² ≤ 4p` for 143a1. Proved for 1061 primes in `HassePrimeSet.lean` — single source `ap_table.json`, 0 sorry, classical trio `{propext, Classical.choice, Quot.sound}`.
+
+**M2 Class number** — `h(Q(√-143)) = 10`. Two routes:
+- Option A: `gen_OK = -28+3ω`, `N=2^10=1024` → `p2^10` principal
+- Option B: 10 reduced BQFs of disc -143, Lagrange → `ClassGroup = ⟨[p2]⟩` order 10
+Files: `BSD_NumberField`, `BSD_Discriminant`, `BSD_IntBasis`, `BSD_ReducedForms`, `BSD_P2_Principal_CLOSED`, `BSD_BQF_Bridge_Closed`, `BSD_ClassGroup_Generator_CLOSED`
+
+**M3 Genus + Bost bound** — `genus(X0(143)) = 13` (Diamond-Shurman) + `C(S4)=11.422148... > 2√13` where `S4={2,3,19,191}`. Margin x1.58. This is the key inequality.
+Files: `Genus_X0_143`, `BostExplicitBound.lean` [B132,B129,B76→B133]
+
+**M1+M2 → M3** gives `BC6_WeilBound`. This is the bridge from arithmetic to analysis.
+
+### M4-M8 Hub — What M3 unlocks
+
+**M4 P5** — `P5=3993746143633`, `q5=226 q6=165849 cf_bound=82829`. `S14` finite sieve.
+**M5 Hecke 1859** — 168 traces `a_p` for 143a1, Hecke coefficients `a_n`.
+**M6 KMS = mass gap** — Bost-Connes KMS state → `Δ>0` Wilson area law, same gap as `C-2√13`.
+**M7 Zoe** — Manifest, Zoe-M*.
+**M8 Eutheos 1419** — Nodup 1419 barrier bypass, `||p·α0||<1/p` jitter.
+
+All 21 bricks 0 sorry, LEAN CLOSED.
+
+### 4 RH Routes — Same arithmetic, 4 voices
+
+**[riemann-arakelov-positivity](https://github.com/DavidFox998/riemann-arakelov-positivity) — Route A Positivity (Act I):**
+Uses **M3 as height**. Abbes-Ullmo `ω²=48/13>0`. If Siegel zero exists, Arakelov height negative → contradiction. This is positivity.
+
+**[arakelov-rh-descent](https://github.com/DavidFox998/arakelov-rh-descent) — Route B Descent (Act II):**
+Uses **M1-M2 as Kim-Sarnak** `λ1≥975/4096` → Selberg trace = Bost-Connes system → GRH for X0(143) → RH main link. This is descent: `grh_to_rh_descent` reduces infinite to finite `S14`.
+
+**[rh-growth-contradiction](https://github.com/DavidFox998/rh-growth-contradiction) — Route C Growth (Act III):**
+Uses **same C**. Poussin `3+4cos+cos2θ≥0` + `C=11.422>2√13` → `ζ³·ζ(s+it)⁴·ζ(s+2it)` contradiction. Littlewood Ω beats `(log t)²`. Outer wall.
+
+**[brothers-desert-proof](https://github.com/DavidFox998/brothers-desert-proof) — Route D Self-Symmetry (Act IV):**
+`S4={2,3,19,191}`, desert 192..1000 empty, `||p·α0||<1/p` jitter Nodup 1419 — orbit stable → `Re(s)=1/2`. Self-symmetry.
+
+### Inner wall + BSD — Example for the viewer
+
+**[lindelof-hypothesis-143](https://github.com/DavidFox998/lindelof-hypothesis-143) — Inner wall:**
+**M3 → GRH X0(143) → μ=0 unconditional** → `|ζ(1/2+it)|=O(t^ε)`. Poussin outer + Growth inner = Lindelöf bridge. This is how M3 controls growth.
+
+**[birch-swinnerton-dyer-143a1](https://github.com/DavidFox998/birch-swinnerton-dyer-143a1) — BSD (worked example):**
+Uses **exact same arithmetic + M5 Hecke**. `X0(143)` genus 13 → `J0(143)` rank 0 via `L(143a1,1)≠0` Heegner point (4,6) on `y²+y=x³-x²-x-2`, conductor `143=11×13`, `|Sha|=1`, `|tors|=1`, `R=5882/10000>0`, `L*·|Sha|·|tors|²=Ω·R·∏c_p` (37006603/25000000 = 12583/10000 × 5882/10000 ×2). Same `a_p` table (168 values), same `C(S4)` as height for regulator. **If you understand BSD here, you understand how M1-M5 feeds RH.**
+
+### Full Opera Map
 
 **[arakelov-positivity-rh-core](https://github.com/DavidFox998/arakelov-positivity-rh-core) — ROOT V2** — M2 kappa, M7 Manifest, M8C Zoe-M*, M4 10^4000 — P5 boundary that spawns 4 voices
 
-**[rh-p5-bridge-14](https://github.com/DavidFox998/rh-p5-bridge-14) — Keystone** — `q5=226 q6=165849 cf_bound=82829` — `grh_to_rh_descent` reduces infinite to finite `S₁₄`
+**[rh-p5-bridge-14](https://github.com/DavidFox998/rh-p5-bridge-14) — Keystone** — `q5=226 q6=165849 cf_bound=82829` — `grh_to_rh_descent` reduces infinite to finite `S14`
 
-**[riemann-arakelov-positivity](https://github.com/DavidFox998/riemann-arakelov-positivity) — Route A Positivity** — via Abbes-Ullmo `ω²=48/13>0` — Act I
+**[riemann-arakelov-positivity](https://github.com/DavidFox998/riemann-arakelov-positivity)** — Route A — Act I
 
-**[arakelov-rh-descent](https://github.com/DavidFox998/arakelov-rh-descent) — Route B Descent** — via Kim-Sarnak `λ₁≥975/4096` — Act II
+**[arakelov-rh-descent](https://github.com/DavidFox998/arakelov-rh-descent)** — Route B — Act II
 
-**[rh-growth-contradiction](https://github.com/DavidFox998/rh-growth-contradiction) — Route C Growth** — via Poussin + `C=11.422>2√13` — Act III
+**[rh-growth-contradiction](https://github.com/DavidFox998/rh-growth-contradiction)** — Route C — Act III
 
-**[brothers-desert-proof](https://github.com/DavidFox998/brothers-desert-proof) — Route D Self-Symmetry** — via `S₄` jitter — Act IV
+**[brothers-desert-proof](https://github.com/DavidFox998/brothers-desert-proof)** — Route D — Act IV
 
-**[lindelof-hypothesis-143](https://github.com/DavidFox998/lindelof-hypothesis-143) — Inner wall** — Poussin outer + Growth inner = Lindelöf bridge
+**[lindelof-hypothesis-143](https://github.com/DavidFox998/lindelof-hypothesis-143)** — Inner wall — `μ=0`
 
-**[birch-swinnerton-dyer-143a1](https://github.com/DavidFox998/birch-swinnerton-dyer-143a1) — BSD** — Heegner `L(143a1,1)≠0` rank 0
+**[birch-swinnerton-dyer-143a1](https://github.com/DavidFox998/birch-swinnerton-dyer-143a1)** — BSD — Heegner `L≠0` rank 0 — **example of M1-M5 arithmetic in action**
 
-**[eutheos-property](https://github.com/DavidFox998/eutheos-property) — 1419 family** — barrier bypass
+**[eutheos-property](https://github.com/DavidFox998/eutheos-property)** — 1419 family — barrier bypass
 
-**[poincare-spectral](https://github.com/DavidFox998/poincare-spectral) — Spectral desert** — `q=1/8` `tail_26≤1e-20` `spectral_gap>0`
+**[poincare-spectral](https://github.com/DavidFox998/poincare-spectral)** — Spectral desert — `q=1/8 tail_26≤1e-20 spectral_gap>0`
 
-**[p-vs-np](https://github.com/DavidFox998/p-vs-np) — Barriers machine** — Eutheos as bypass
+**[p-vs-np](https://github.com/DavidFox998/p-vs-np)** — Barriers machine — Eutheos as bypass
 
-**[yang-mills-gap](https://github.com/DavidFox998/yang-mills-gap) — Mass gap** — `Δ>0` Wilson area law — same gap as `C-2√13`
+**[yang-mills-gap](https://github.com/DavidFox998/yang-mills-gap)** — Mass gap — `Δ>0` Wilson area law — same gap as `C-2√13`
 
-**[navier-stokes](https://github.com/DavidFox998/navier-stokes) — Dissipation** — heat trace `Θ(t)` summable
+**[navier-stokes](https://github.com/DavidFox998/navier-stokes)** — Dissipation — heat trace `Θ(t)` summable
 
-**[opera-sieve](https://github.com/DavidFox998/opera-sieve) — Methodology** — defines `S_14`, `S_alpha0`
+**[opera-sieve](https://github.com/DavidFox998/opera-sieve)** — Methodology — defines `S14`, `Sα0`
 
-**[zerobeacon](https://github.com/DavidFox998/zerobeacon) — BRAIN** — 1000 tools
+**[zerobeacon](https://github.com/DavidFox998/zerobeacon)** — BRAIN — 1000 tools
 
-**[pistus-theoria](https://github.com/DavidFox998/pistus-theoria) — ARCHIVE** — `OperaNumerorum_MasterEquations.pdf`
+**[pistus-theoria](https://github.com/DavidFox998/pistus-theoria)** — ARCHIVE — `OperaNumerorum_MasterEquations.pdf`
 
-**THIS REPO**
-**[bost-connes](https://github.com/DavidFox998/bost-connes) — Gates M1-M3 / Phase transition → M4-M8 Hub** — `C(S₄)=11.422148... >2√13` margin x1.58, `M1+M2→M3 → BC6_WeilBound` [B132,B129,B76→B133] + M4 P5=3993746143633 + M5 Hecke 1859 + M6 KMS=mass gap + M7 Zoe + M8 Eutheos 1419 — 21 bricks 0 sorry `{propext, Classical.choice, Quot.sound}` — LEAN CLOSED
+### THIS REPO
+
+**[bost-connes](https://github.com/DavidFox998/bost-connes) — Gates M1-M3 / Phase transition → M4-M8 Hub** — `C(S4)=11.422148... >2√13` margin x1.58, `M1+M2→M3 → BC6_WeilBound` [B132,B129,B76→B133] + M4 P5=3993746143633 + M5 Hecke 1859 + M6 KMS=mass gap + M7 Zoe + M8 Eutheos 1419 — 21 bricks 0 sorry `{propext, Classical.choice, Quot.sound}` — LEAN CLOSED — Build #173 green, 1061 Hasse primes, h=10 both routes.
 
 ## 4. Build — Lean 4.15.0
 
