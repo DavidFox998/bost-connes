@@ -1,5 +1,8 @@
 # bost-connes — Gates M1-M3 — Bost-Connes for X₀(143) — CLOSED
 
+> **Opera Numerorum ensemble** — 19 repos · chain `7472f4e5` · [REPOS.md →](https://github.com/DavidFox998/rh-p5-bridge-14/blob/main/REPOS.md)
+
+
 **David J. Fox** — ORCID 0009-0008-1290-6105 — Lean 4.12 / Mathlib v4.12 — 21 bricks 0 sorry — `{propext, Classical.choice, Quot.sound}`
 
 Every true monastery sits behind Shanmen — Mountain Gate — three gates.
