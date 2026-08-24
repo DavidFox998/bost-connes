@@ -1,40 +1,37 @@
 {
-  "title": "Bost-Connes — Arithmetic Hub — C(S₄)=11.422...>2√13 — Gates M1-M8 — 21 bricks 0 sorry — Opera Numerorum",
-  "description": "Arithmetic hub of Opera Numerorum. Gates M1-M3: M1 Hasse bound a_p²≤4p for 1061 primes (single source ap_table.json); M2 h(Q(√-143))=10 — Option A gen_OK=-28+3ω N=1024 → p2^10 principal + Option B 10 reduced BQFs ClassGroup=⟨[p2]⟩; M3 genus(X₀143)=13 + explicit C(S₄)=11.422148...=2·ln2+3·ln3/2+19·ln19/18+191·ln191/190 with S₄={2,3,19,191} and C(S₄)>2√13≈7.211 margin ×1.58. M1+M2→M3 yields BC6_WeilBound [B132,B129,B76→B133]. 21 bricks 0 sorry.",
-  "keywords": [
-    "bost-connes",
-    "arithmetic-hub",
-    "C(S4)",
-    "hasse-bound",
-    "class-number-10",
-    "X0-143",
-    "genus-13",
-    "lean4",
-    "mathlib",
-    "M1-M8",
-    "opera-numerorum",
-    "formal-proof",
-    "S4={2,3,19,191}",
-    "ORCID:0009-0008-1290-6105"
-  ],
-  "license": "MIT",
+  "title": "Bost–Connes Spectral Analysis for X₀(143) — Formalization",
   "upload_type": "software",
-  "access_right": "open",
-  "language": "en",
-  "version": "v1.0.0-M1-M8-CLOSED",
-  "related_identifiers": [
-    {
-      "identifier": "https://github.com/DavidFox998/rh-p5-bridge-14",
-      "relation": "isSupplementTo",
-      "resource_type": "software",
-      "scheme": "url"
-    }
-  ],
+  "description": "Lean 4 formalization of the Bost–Connes spectral-analysis gates for X₀(143), including the exceptional-prime set S₄ = {2, 3, 19, 191} and the threshold C(S₄) > 2√13. This repository is part of David Fox's Opera Numerorum ensemble.",
   "creators": [
     {
-      "name": "Fox, David J.",
-      "orcid": "0009-0008-1290-6105",
-      "affiliation": "Independent Researcher, Opera Numerorum"
+      "name": "Fox, David",
+      "affiliation": "Opera Numerorum",
+      "orcid": "0009-0008-1290-6105"
     }
-  ]
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Bost–Connes system",
+    "X₀(143)",
+    "spectral analysis",
+    "C(S₄)",
+    "Lean 4",
+    "formal verification",
+    "modular curves",
+    "Opera Numerorum"
+  ],
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/DavidFox998/bost-connes",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "lean"
+    }
+  ],
+  "language": "en"
 }
