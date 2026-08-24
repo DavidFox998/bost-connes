@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: "Bost–Connes Spectral Analysis for X₀(143) — Formalization"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Fox
+    given-names: David
+    orcid: "https://orcid.org/0009-0008-1290-6105"
+    affiliation: "Opera Numerorum"
+license: MIT
+repository-code: "https://github.com/DavidFox998/bost-connes"
+keywords:
+  - "Bost–Connes system"
+  - "X₀(143)"
+  - "spectral analysis"
+  - "C(S₄)"
+  - "Lean 4"
+  - "formal verification"
+  - "modular curves"
+  - "Opera Numerorum"
+abstract: "Lean 4 formalization of the Bost–Connes spectral-analysis gates for X₀(143), including the exceptional-prime set S₄ = {2, 3, 19, 191} and the threshold C(S₄) > 2√13. This repository is part of David Fox's Opera Numerorum ensemble."
