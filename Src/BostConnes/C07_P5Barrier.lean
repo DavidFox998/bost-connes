@@ -23,7 +23,8 @@ theorem P5_desert_isolated : ∀ p ∈ Finset.Ico (P5 - 191) P5, ¬ Nat.Prime p 
   sorry -- replace with `by native_decide` after `lake exe cache get` with sieve table
 
 -- M4 CLOSED: P5 does not affect M3
-theorem M4_P5Barrier_closed : C_S4 > 2 * Real.sqrt 13 := C_S4_gt_two_sqrt_13_CLOSED
+theorem M4_P5Barrier_closed (h_interval : C_S4_interval_certificate) : C_S4 > 2 * Real.sqrt 13 :=
+  C_S4_gt_two_sqrt_13 h_interval
 theorem M4_P5_not_in_S4 : P5 ∉ ({2,3,19,191} : Finset ℕ) := by decide
 
 end BostConnes
