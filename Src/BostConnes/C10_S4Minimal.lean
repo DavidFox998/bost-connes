@@ -3,10 +3,11 @@ import BostConnes.Threshold
 namespace BostConnes
 open Real
 
--- The two three-prime comparisons are kept as explicit numerical certificate
--- inputs until their logarithmic interval proofs are formalized.
-def C_S3_2_3_19 : ℝ := 2 * log 2 + 3 * log 3 / 2 + 19 * log 19 / 18
-def C_S3_2_3_191 : ℝ := 2 * log 2 + 3 * log 3 / 2 + 191 * log 191 / 190
+-- The two three-prime comparisons are explicit numerical certificate inputs
+-- until their logarithmic interval proofs are formalized.
+noncomputable def C_S3_2_3_19 : ℝ := 2 * log 2 + 3 * log 3 / 2 + 19 * log 19 / 18
+noncomputable def C_S3_2_3_191 : ℝ :=
+  Finset.sum ({2, 3, 191} : Finset ℕ) (fun p => (p : ℝ) * log p / (p - 1))
 
 def S3_threshold_certificate : Prop :=
   C_S3_2_3_19 < 2 * sqrt 13 ∧ 2 * sqrt 13 < C_S3_2_3_191
