@@ -42,7 +42,6 @@ def C_S4_interval_certificate : Prop :=
 theorem C_S4_gt_two_sqrt_13
     (h_interval : C_S4_interval_certificate) : 2 * sqrt 13 < C_S4 := by
   have h_lower : (11422 : ℝ) / 1000 < C_S4 := h_interval.1
-  have h_eight : (8 : ℝ) < 11422 / 1000 := by norm_num
   linarith [C_S4_threshold_gap]
 
 end BostConnes
