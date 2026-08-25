@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21926556.svg)](https://doi.org/10.5281/zenodo.21926556) [![CI](https://github.com/DavidFox998/bost-connes/actions/workflows/manifest-locked.yml/badge.svg)](https://github.com/DavidFox998/bost-connes/actions/workflows/manifest-locked.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21926556.svg)](https://doi.org/10.5281/zenodo.21926556) [![Lean proof build](https://github.com/DavidFox998/bost-connes/actions/workflows/lean.yml/badge.svg)](https://github.com/DavidFox998/bost-connes/actions/workflows/lean.yml)
 
 # bost-connes — Gates M1-M3 — Bost-Connes for X₀(143) — CLOSED
 
