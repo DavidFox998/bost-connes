@@ -18,19 +18,16 @@ require arakelov from git
 package bost_connes where
   leanOptions := #[⟨`autoImplicit, false⟩]
 
+@[default_target]
 lean_lib BostConnes where
   srcDir := "Src"
   roots := #[`BostConnes.Arithmetic,
               `BostConnes.Threshold,
               `BostConnes.C06_ZetaControl,
               `BostConnes.GateM1Certificate,
-              `BostConnes.BricksClosed,
               `BostConnes.C07_P5Barrier,
               `BostConnes.C08_HeckeTransfer,
               `BostConnes.C09_KMSCritical,
               `BostConnes.C10_S4Minimal,
               `BostConnes.C11_BarrierBypass]
 
-@[default_target]
-lean_lib BostConnesFull where
-  srcDir := "Src"
