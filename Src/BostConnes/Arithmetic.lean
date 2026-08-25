@@ -29,6 +29,7 @@
 
 import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.Data.Finset.Basic
+import Mathlib.Data.Finset.NatDivisors
 
 namespace BostConnes
 
