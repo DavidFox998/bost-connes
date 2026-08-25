@@ -7,7 +7,7 @@ open Real
 -- The numerical positivity claim depends explicitly on the interval certificate.
 
 def beta_c : ℝ := 1
-def mass_gap_from_C : ℝ := C_S4 - 2 * sqrt 13
+noncomputable def mass_gap_from_C : ℝ := C_S4 - 2 * sqrt 13
 
 theorem M6_mass_gap_pos
     (h_interval : C_S4_interval_certificate) : 0 < mass_gap_from_C := by
