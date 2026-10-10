@@ -29,5 +29,6 @@ lean_lib BostConnes where
               `BostConnes.C08_HeckeTransfer,
               `BostConnes.C09_KMSCritical,
               `BostConnes.C10_S4Minimal,
-              `BostConnes.C11_BarrierBypass]
+              `BostConnes.C11_BarrierBypass,
+              `BostConnes.GatesM1M3]
 
